@@ -1,14 +1,16 @@
+import Todo from "../models/todo";
 import ITodo from "../types/todoTypes";
-
 class TodoRepository{
 
-    todoModel : ITodo;
-
-    constructor(todoModel : ITodo){
-      this.todoModel = todoModel;
+    async getAll() : Promise<ITodo[]>{
+        return await Todo.find();
     }
 
-    async getAll(){
-        // return await this.todoModel.find();
+    async create(title : string , tag : string[]): Promise<ITodo>{
+        return await Todo.create({title,tag, completed : false});
     }
+
+
 }
+
+export default  TodoRepository;
