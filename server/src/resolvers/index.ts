@@ -8,6 +8,12 @@ const resolvers = {
         getTodos : async ()=>{
             return await todoService.getAll();
         }
+    },
+
+    Mutation : {
+        addTodo : async (_ : any , {title , tag}: {title : string , tag : string[]})=>{
+            return await todoService.create(title, tag);
+        }
     }
 }
 

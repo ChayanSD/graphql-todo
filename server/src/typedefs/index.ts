@@ -6,11 +6,15 @@ const typedefs = gql`
         id : ID!
         title : String!
         completed : Boolean!
-        tags : [String]!
+        tag : [String]!
     }
 
     type Query{
         getTodos : [Todo]!
+    }
+
+    type Mutation {
+        addTodo(title : String! , tag : [String]!) : Todo!
     }
 
 `;
